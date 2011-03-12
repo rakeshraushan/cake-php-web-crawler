@@ -3,7 +3,7 @@
 <br>
 <div>
  <span>
-     <?php echo $html->link($html->image('rss.gif',array('alt'=>'RSS')),array('action'=>'index.rss'),null,false,false);?>
+     <?php echo $html->link("RSS", array('action'=>'index.rss'));?>
 
    </span>
    </div>
@@ -32,5 +32,5 @@
   <td width ="120"><?php echo $li['Post']['modified'];?></td>
   <td width='20'><?php echo $li['Post']['image'];?></td>
  </tr>
- <? endforeach;?>
+ <?php endforeach;?>
  </table>
