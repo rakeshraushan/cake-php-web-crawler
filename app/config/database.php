@@ -78,8 +78,8 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'vertrigo',
-		'database' => 'cake',
+		'password' => '123456',
+		'database' => 'rss_generate',
 		'prefix' => '',
         'encoding' => 'utf8',
 	);
@@ -88,9 +88,9 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
+		'login' => 'root',
+		'password' => '123456',
+		'database' => 'rss_generate',
 		'prefix' => '',
 	);
 }
