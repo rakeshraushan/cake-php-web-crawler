@@ -1,20 +1,19 @@
 <?php
 class PostsController extends AppController{
 	var $name='Posts';
-	var $components=array('RequestHandler');
 	function index(){
-		$posts=$this->Post->find('all');
-
-		$this->set('list',$posts);
-		// Rss section
-		$channelData = array('title' => 'Current posts | The blogger',
-				'link' => array('controller' => 'posts', 'action' => 'index', 'ext' => 'rss'),
-				'url' => array('controller' => 'posts', 'action' => 'index', 'ext' => 'rss'),
-				'description' => 'The current posts in our blog',
-				'language' => 'en-uk'
-				);
-		$posts = $this->Post->find('all', array('limit' => 10, 'order' => 'Post.created'));
-		$this->set(compact('channelData', 'posts'));
+		if( $this->RequestHandler->isRss() ){    
+   			$posts = $this->Post->find('all', array('limit' => 20, 'order' => 'Post.created DESC'));
+   			$this->layout='rss';
+   			$this->set(compact('posts'));
+		}    
+		else{
+		// this is not an Rss request, so deliver    
+		// data used by website's interface    
+		$this->paginate['Post'] = array('order' => 'Post.created DESC', 'limit' => 10);        
+		$posts = $this->paginate();    
+		$this->set(compact('posts'));
+		}
 	}
 	function view($id=NULL){
 		$temp=$this->Post->read(NULL,$id);
