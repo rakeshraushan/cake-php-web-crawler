@@ -21,7 +21,7 @@
     <td style="background:#CCFF99"><b>Modified</b></td>
     <td colspan="2" style="background:#CCFF99"><b>&nbsp;&nbsp;Image</b></td>
  </tr>
-    <?php foreach ($list as $li):?>
+    <?php foreach ($posts as $li):?>
 
  <tr>
   <td><div align="left"><?php echo $li['Post']['id'];?></div></td>
