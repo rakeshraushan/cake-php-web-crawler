@@ -4,16 +4,14 @@ class PostsController extends AppController{
 	function index(){
 		if( $this->RequestHandler->isRss() ){    
    			$posts = $this->Post->find('all', array('limit' => 20, 'order' => 'Post.created DESC'));
-   			$this->layout='rss';
    			$this->set(compact('posts'));
 		}    
-		else{
 		// this is not an Rss request, so deliver    
 		// data used by website's interface    
 		$this->paginate['Post'] = array('order' => 'Post.created DESC', 'limit' => 10);        
 		$posts = $this->paginate();    
 		$this->set(compact('posts'));
-		}
+
 	}
 	function view($id=NULL){
 		$temp=$this->Post->read(NULL,$id);
