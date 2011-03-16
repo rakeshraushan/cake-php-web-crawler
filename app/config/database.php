@@ -79,7 +79,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '123456',
-		'database' => 'rss_generate',
+		'database' => 'rss_generator',
 		'prefix' => '',
         'encoding' => 'utf8',
 	);
