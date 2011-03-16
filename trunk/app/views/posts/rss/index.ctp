@@ -38,5 +38,5 @@ foreach ($posts as $post) {
 		'guid' => array('url' => $postLink, 'isPermaLink' => 'true'),
 		'description' => $bodyText,
 		'dc:creator' => $post['Post']['title'],
-		'pubDate' => $post['Post']['created'])); die;
+		'pubDate' => $post['Post']['created'])); 
 }
