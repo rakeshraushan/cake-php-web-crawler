@@ -1,3 +1,4 @@
+
 <?php 
 echo $this->Rss->header();
 if (!isset($documentData)) {    
