@@ -1,8 +1,13 @@
-<?php
-$this->set('documentData', array(
-'xmlns:dc' => 'http://purl.org/dc/elements/1.1/'));
-$this->set('channelData', array(
-'title' => __("Most Recent Posts", true),
-'link' => $this->Html->url('/', true),
-'description' => __("Most recent posts.", true),
-'language' => 'en-us'));
+<?php 
+echo $this->Rss->header();
+if (!isset($documentData)) {    
+	$documentData = array();
+}
+if (!isset($channelData)) {    
+	$channelData = array();
+}
+if (!isset($channelData['title'])) {    
+	$channelData['title'] = $title_for_layout;
+} 
+$channel = $this->Rss->channel(array(), $channelData, $content_for_layout);
+echo $this->Rss->document($documentData,$channel);
