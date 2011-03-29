@@ -1,13 +1,14 @@
 <?php
 class Post extends AppModel{
     var $name="Post";
-    var $validate=array('title'=>array(
+    var $validate=array('url'=>array(
           'rule' => 'notEmpty',
-        'message'=>'Title Không được để trống'
-    ),'url'=>array(
+        'message'=>' Không có dữ liệu '
+    ),'content'=>array(
           'rule' => 'notEmpty',
-        'message'=>'Url Không được để trống'));
-
+        'message'=>'Không có dữ liệu')
+    ,'image'=>array('rule'=>'notEmpty'
+    ,'message'=>'Không có dữ liệu'));
 }
  ?>
 

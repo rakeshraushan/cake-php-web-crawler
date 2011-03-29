@@ -21,8 +21,6 @@ foreach ($posts as $post) {
 	// This is the part where we clean the body text for output as the description
 	// of the rss item, this needs to have only text to make sure the feed validates
 	$bodyText = preg_replace('=\(.*?\)=is', '', $post['Post']['content']);
-	//$bodyText = $post['Post']['content'];
-
 	$bodyText = $this->Text->stripLinks($bodyText);
 	$bodyText = Sanitize::stripAll($bodyText);
 	
@@ -33,10 +31,10 @@ foreach ($posts as $post) {
 	));
 	
 	echo $this->Rss->item(array(), array(
-		'title' => $post['Post']['title'],
-		'link' => $postLink,
+		'title' => $post['Post']['url'],
+		'link' =>  $post['Post']['url'],
 		'guid' => array('url' => $postLink, 'isPermaLink' => 'true'),
 		'description' => $bodyText,
-		'dc:creator' => $post['Post']['title'],
+		'dc:creator' => $post['Post']['url'],
 		'pubDate' => $post['Post']['created'])); 
 }
